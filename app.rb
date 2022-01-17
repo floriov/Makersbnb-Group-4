@@ -6,12 +6,13 @@ class MakersBnB < Sinatra::Base
     register Sinatra::Reloader
   end
 
+
   enable :sessions
 
   get '/' do
     erb :'index'
   end
-
+  
   get '/users/new' do
     erb :'users/new'
   end 
@@ -19,6 +20,10 @@ class MakersBnB < Sinatra::Base
   post '/users' do
     redirect '/'
   end 
+  
+  get '/makersbnb/add' do
+    erb :'/space_views/add_space'
+  end
 
   run! if app_file == $0
 end
