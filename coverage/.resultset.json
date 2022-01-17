@@ -1,0 +1,64 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/features/registration_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/user_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/Josh/Projects/Makersbnb-Group-4/lib/user.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1642440602
+  }
+}
