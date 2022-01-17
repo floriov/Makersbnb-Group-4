@@ -6,6 +6,21 @@ class MakersBnB < Sinatra::Base
     register Sinatra::Reloader
   end
 
+
+  enable :sessions
+
+  get '/' do
+    erb :'index'
+  end
+  
+  get '/users/new' do
+    erb :'users/new'
+  end 
+
+  post '/users' do
+    redirect '/'
+  end 
+  
   get '/makersbnb/add' do
     erb :'/space_views/add_space'
   end
