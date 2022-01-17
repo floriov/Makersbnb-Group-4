@@ -1,0 +1,27 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/features/adding_a_space_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/features/viewing_spaces_spec.rb": {
+        "lines": [
+
+        ]
+      }
+    },
+    "timestamp": 1642440040
+  }
+}

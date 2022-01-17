@@ -6,8 +6,8 @@ class MakersBnB < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
-    'Hello World'
+  get '/makersbnb/add' do
+    erb :'/space_views/add_space'
   end
 
   run! if app_file == $0
