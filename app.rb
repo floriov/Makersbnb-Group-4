@@ -6,7 +6,6 @@ class MakersBnB < Sinatra::Base
     register Sinatra::Reloader
   end
 
-
   enable :sessions
 
   get '/' do
@@ -21,8 +20,12 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end 
   
-  get '/makersbnb/add' do
-    erb :'/space_views/add_space'
+  get '/spaces' do
+    erb :'/space_views/spaces'
+  end
+
+  get '/spaces/add' do
+    erb :'/space_views/add'
   end
 
   run! if app_file == $0
