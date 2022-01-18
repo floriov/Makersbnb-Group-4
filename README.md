@@ -65,7 +65,7 @@ I want to prevent a booked space from being available
 (7.Until a user has confirmed a booking request, that space can still be booked for that night)
 As a host
 So that I don’t miss out on any bookings
-I want a space to be available until a customer confirms a booking request
+I want a space to be available until I confirm a booking request
 ```
 
 
