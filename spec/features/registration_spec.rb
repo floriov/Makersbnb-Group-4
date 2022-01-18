@@ -6,7 +6,7 @@ feature 'registration' do
     fill_in 'username', with: 'user_test'
     click_button('Sign up')
 
-    expect(page).to have_content "Beautiful Relaxing Space Less Beautiful, Less Relaxing Space Ugly Fear-Inducing Space"
+    expect(page).to have_content "Lovely Spaces!"
 
   end 
 end 
