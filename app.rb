@@ -21,7 +21,8 @@ class MakersBnB < Sinatra::Base
   end 
 
   post '/users' do
-    redirect '/'
+    
+    redirect '/spaces'
   end 
   
   get '/spaces' do
