@@ -1,0 +1,1 @@
+CREATE TABLE bookings ( id SERIAL PRIMARY KEY, spaces_id int NOT NULL, start_date date NOT NULL, end_date date NOT NULL);
