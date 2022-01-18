@@ -12,12 +12,13 @@ class MakersBnB < Sinatra::Base
     erb :'index'
   end
   
-  get '/users/new' do
-    erb :'users/new'
-  end 
+  # get '/users/new' do
+  #   erb :'users/new'
+  # end 
 
   post '/users' do
-    redirect '/'
+    
+    redirect '/spaces'
   end 
   
   get '/spaces' do

@@ -8,6 +8,7 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require_relative './setup_test_database'
 
 Capybara.app = MakersBnB
 
@@ -19,9 +20,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-#  config.before(:each) do
-#    setup_test_database
-#  end
+ config.before(:each) do
+   setup_test_database
+ end
 
   config.after(:suite) do
     puts

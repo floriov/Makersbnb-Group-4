@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/bencoyne/Projects/makersbnb/Makersbnb-Group-4/spec/features/adding_a_space_spec.rb": {
+      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/features/adding_a_space_spec.rb": {
         "lines": [
           1,
           1,
@@ -16,7 +16,7 @@
           null
         ]
       },
-      "/Users/bencoyne/Projects/makersbnb/Makersbnb-Group-4/spec/features/registration_spec.rb": {
+      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/features/registration_spec.rb": {
         "lines": [
           1,
           1,
@@ -32,7 +32,7 @@
           null
         ]
       },
-      "/Users/bencoyne/Projects/makersbnb/Makersbnb-Group-4/spec/features/viewing_spaces_spec.rb": {
+      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/features/viewing_spaces_spec.rb": {
         "lines": [
           1,
           1,
@@ -44,7 +44,7 @@
           null
         ]
       },
-      "/Users/bencoyne/Projects/makersbnb/Makersbnb-Group-4/spec/space_spec.rb": {
+      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/space_spec.rb": {
         "lines": [
           1,
           null,
@@ -74,7 +74,7 @@
           null
         ]
       },
-      "/Users/bencoyne/Projects/makersbnb/Makersbnb-Group-4/lib/space.rb": {
+      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/lib/space.rb": {
         "lines": [
           1,
           null,
@@ -89,7 +89,7 @@
           null
         ]
       },
-      "/Users/bencoyne/Projects/makersbnb/Makersbnb-Group-4/spec/user_spec.rb": {
+      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -99,9 +99,9 @@
           1,
           null,
           1,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
           null,
           null,
           null,
@@ -110,27 +110,42 @@
           null
         ]
       },
-      "/Users/bencoyne/Projects/makersbnb/Makersbnb-Group-4/lib/user.rb": {
+      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/lib/user.rb": {
         "lines": [
-          null,
           1,
           null,
           1,
           null,
           1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
           0,
-          0,
-          0,
           null,
           null,
           null,
           1,
+          1,
+          null,
+          null,
           null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1642449680
+    "timestamp": 1642508274
   }
 }
