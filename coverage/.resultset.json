@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/features/adding_a_space_spec.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/features/adding_a_space_spec.rb": {
         "lines": [
           1,
           1,
@@ -16,7 +16,7 @@
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/features/registration_spec.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/features/registration_spec.rb": {
         "lines": [
           1,
           1,
@@ -32,7 +32,7 @@
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/features/viewing_spaces_spec.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/features/viewing_spaces_spec.rb": {
         "lines": [
           1,
           1,
@@ -44,7 +44,7 @@
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/space_spec.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/space_spec.rb": {
         "lines": [
           1,
           null,
@@ -74,7 +74,7 @@
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/lib/space.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/lib/space.rb": {
         "lines": [
           1,
           null,
@@ -89,7 +89,7 @@
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/user_spec.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -110,7 +110,7 @@
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/lib/user.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/lib/user.rb": {
         "lines": [
           1,
           null,
@@ -146,6 +146,6 @@
         ]
       }
     },
-    "timestamp": 1642508274
+    "timestamp": 1642526082
   }
 }

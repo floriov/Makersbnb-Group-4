@@ -67,3 +67,28 @@ As a host
 So that I don’t miss out on any bookings
 I want a space to be available until a customer confirms a booking request
 ```
+
+
+>>> #Testing Our Calendar BOokign 
+# STEP 1 >> inserting availabilities of a specific space by the host
+INSERT INTO sys_calendar VALUES
+('2013-04-01'),
+('2013-04-02'),
+('2013-04-03'),
+('2013-04-04'),
+('2013-04-05'),
+('2013-04-06'),
+('2013-04-07');
+
+# STEP 2 >> creating users booking request with start and end dates for a specific space (1)
+INSERT INTO bookings (spaces_id, start_date, end_date) VALUES (1, '2013-04-01', '2013-04-03');
+
+# STEP 3 >> query to check if the dates requested are available 
+SELECT	c.dt,
+		CASE WHEN COUNT(b.id) > 0 THEN 'No' ELSE 'Yes' END AS Availability
+FROM	sys_calendar c
+		LEFT JOIN bookings b
+			ON b.spaces_id = 1
+			AND c.dt BETWEEN b.Start_Date AND b.End_Date
+WHERE   c.dt BETWEEN '20130401' AND '20130430'
+GROUP BY c.dt;
