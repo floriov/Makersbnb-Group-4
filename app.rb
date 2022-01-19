@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/space'
@@ -12,23 +14,22 @@ class MakersBnB < Sinatra::Base
   enable :sessions
 
   get '/' do
-    erb :'index'
+    erb :index
   end
-  
+
   get '/users/new' do
     session[:user_id] = params[:user_id]
     erb :'users/new'
-  end 
+  end
 
   post '/users' do
-    
     redirect '/spaces'
-  end 
-  
+  end
+
   get '/spaces' do
     @spaces = Space.all
 
-    erb :'/space_views/spaces' 
+    erb :'/space_views/spaces'
   end
 
   get '/spaces/add' do
@@ -36,10 +37,10 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/spaces/add' do
-    Space.add(name: params[:name], description: params[:description], price: params[:price], user_id: session[:user_id])
-    
+    Space.add(name: params[:name], description: params[:description], price: params[:price], available_from: params[:available_from], available_to: params[:available_to], user_id: session[:user_id])
+
     redirect '/spaces'
   end
 
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end

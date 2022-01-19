@@ -1,4 +1,6 @@
-feature 'registration' do 
+# frozen_string_literal: true
+
+feature 'registration' do
   scenario 'a user can sign up' do
     visit '/'
     fill_in 'email', with: 'test@test.com'
@@ -6,7 +8,6 @@ feature 'registration' do
     fill_in 'username', with: 'user_test'
     click_button('Sign up')
 
-    expect(page).to have_content "Lovely Spaces!"
-
-  end 
-end 
+    expect(page).to have_content 'Lovely Spaces!'
+  end
+end

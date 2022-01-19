@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'user'
 
 describe User do
@@ -9,9 +11,6 @@ describe User do
       expect(user.email).to eq 'test@test.com'
       expect(user.username).to eq 'user_test'
       expect(user.password).to eq 'test123'
-
     end
   end
 end
-
-
