@@ -24,3 +24,4 @@ class Space
     Space.new(name: result[0]['name'], description: result[0]['description'], price: result[0]['price'], user_id: result[0]['user_id'])
   end
 end
+
