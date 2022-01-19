@@ -1,10 +1,23 @@
-<h1>'Feel at home, anywhere'</h1>
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Monoton&display=swap');
+    </style>
+  </head>
+  <body>
+    
+    <div class='topnav'>
+      <h1><a href="spaces">MakersBnB</a></h1>
+    </div>
 
-<form action="/users" method="POST">
-
-  <input type ="text", name="username", placeholder="username">
-  <input type ="text", name="email", placeholder="email">
-  <input type ="text", name="password", placeholder="password">
-  <input type ="submit", value="Sign up">
-
-</form>
+      <form class='box' action="/users" method="POST">
+        <h1>Sign up</h1>
+        <input class='standard-input' type ="text", name="username", placeholder="username">
+        <input class='standard-input' type ="text", name="email", placeholder="email">
+        <input class='standard-input' type ="password", name="password", placeholder="password">
+        <input class='standard-button' type ="submit", value="Sign up">
+      
+    </form>
+  </body>
+</html>
