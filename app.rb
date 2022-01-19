@@ -21,13 +21,11 @@ class MakersBnB < Sinatra::Base
   end 
 
   post '/users' do
-    
     redirect '/spaces'
   end 
   
   get '/spaces' do
     @spaces = Space.all
-
     erb :'/space_views/spaces' 
   end
 
