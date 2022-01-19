@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 feature 'Adding a space' do
   scenario 'user can add a space' do
-    visit '/spaces/add'
+    fill_in_add_space('Test Name', 'Test Description', '100.00', '01/02/2022', '04/02/2022')
     
-    fill_in 'name', with: '1, Space Avenue'
-    fill_in 'description', with: 'Big spacious space on Space Avenue for testing space tests'
-    fill_in 'price', with: '142.00'
-
-    click_button('Add lovely space')
+    expect(page).to have_content 'Test Name'
+    expect(page).to have_content 'Test Description'
+    expect(page).to have_content '£100.00'
+    expect(page).to have_content '2022-01-02'
+    expect(page).to have_content '2022-04-02'
   end
 end

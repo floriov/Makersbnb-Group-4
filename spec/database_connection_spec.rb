@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'database_connection'
 
 describe DatabaseConnection do
@@ -10,7 +12,7 @@ describe DatabaseConnection do
 
     it 'this connection is persistent' do
       connection = DatabaseConnection.setup('makersbnb_test')
-    
+
       expect(DatabaseConnection.connection).to eq connection
     end
   end
@@ -18,10 +20,10 @@ describe DatabaseConnection do
   describe '.query' do
     it 'executes a query via PG' do
       connection = DatabaseConnection.setup('makersbnb_test')
-  
-      expect(connection).to receive(:exec_params).with("SELECT * FROM spaces;", [])
-  
-      DatabaseConnection.query("SELECT * FROM spaces;")
+
+      expect(connection).to receive(:exec_params).with('SELECT * FROM spaces;', [])
+
+      DatabaseConnection.query('SELECT * FROM spaces;')
     end
   end
 end
