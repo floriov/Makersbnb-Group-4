@@ -92,3 +92,8 @@ FROM	sys_calendar c
 			AND c.dt BETWEEN b.Start_Date AND b.End_Date
 WHERE   c.dt BETWEEN '20130401' AND '20130430'
 GROUP BY c.dt;
+
+
+#Step 4 >> Add a new booking request
+
+INSERT INTO bookings (spaces_id, host_id, customer_id, start_date, end_date, status) VALUES('2', '45', '55', '2013/04/01', '2013/04/02', 'requested');
