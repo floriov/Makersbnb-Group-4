@@ -1,4 +1,5 @@
 require 'booking'
+require 'pg'
 
 describe Booking do 
   describe '.add' do 
@@ -6,15 +7,15 @@ describe Booking do
       connection = PG.connect(dbname: 'makersbnb_test')
       host = connection.exec_params("INSERT INTO users (id) VALUES ($1)", [1])
       customer = connection.exec_params("INSERT INTO users (id) VALUES ($1)", [2])
-      space = Space.add(name: 'test name', description: 'test description', price: '22.22', user_id: 1, start_date: '2022-01-01', end_date: '2022-01-31')
+      space = Space.add(name: 'test name', description: 'test description', price: '22.22', user_id: 1, available_from: '2022-01-01', available_to: '2022-01-31')
 
       #need space_id to be readable - pending Ben and Victoria
-      booking = Bookings.add(space_id: space_id, host_id: 1, customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
+      booking = Booking.add(space_id: 1, host_id: 1, customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
 
       expect(booking).to be_a Booking
-      expect(booking.space_id).to eq space.space_id
+      expect(booking.space_id).to eq '1'
       expect(booking.host_id).to eq space.user_id
-      expect(booking.customer_id).to eq customer.id
+      expect(booking.customer_id).to eq '2'
       expect(booking.start_date).to eq '2022-01-01'
       expect(booking.end_date).to eq '2022-01-31'
       expect(booking.status).to eq 'requested'
@@ -23,41 +24,41 @@ describe Booking do
   end 
 
   describe '.all' do 
-    it 'shows all bookings' do
-      host = connection.exec_params("INSERT INTO users (id) VALUES ($1)", [1])
+    it 'shows all Booking' do
       connection = PG.connect(dbname: 'makersbnb_test')
+      host = connection.exec_params("INSERT INTO users (id) VALUES ($1)", [1])
       customer = connection.exec_params("INSERT INTO users (id) VALUES ($1)", [2])
-      space = Space.add(name: 'test name', description: 'test description', price: '22.22', user_id: 1, start_date: '2022-01-01', end_date: '2022-01-31')
+      space = Space.add(name: 'test name', description: 'test description', price: '22.22', user_id: 1, available_from: '2022-01-01', available_to: '2022-01-31')
 
-      booking = Bookings.add(space_id: space_id, host_id: 1, customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
-                Bookings.add(space_id: space_id, host_id: 1, customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
+      booking = Booking.add(space_id: 1, host_id: 1, customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
+                Booking.add(space_id: 1, host_id: 1, customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
 
-        bookings = Booking.all
+        booking = Booking.all
       
-      expect(bookings.length).to eq 2
-      expect(bookings.first).to be_a Booking
-      expect(bookings.first.space_id).to eq booking.space_id
-      expect(bookings.first.host_id).to eq booking.host_id
-      expect(bookings.first.customer_id).to eq booking.customer_id
-      expect(bookings.first.start_date).to eq booking.start_date
-      expect(bookings.first.end_date).to eq booking.end_date
-      expect(bookings.first.status).to eq booking.status
+      expect(booking.length).to eq 2
+      expect(booking.first).to be_a Booking
+      expect(booking.first.space_id).to eq 1
+      expect(booking.first.host_id).to eq booking.host_id
+      expect(booking.first.customer_id).to eq '2'
+      expect(booking.first.start_date).to eq booking.start_date
+      expect(booking.first.end_date).to eq booking.end_date
+      expect(booking.first.status).to eq booking.status
 
     end
   end
 
   describe '.all_booking_made' do
-    it 'shows the bookings requested by the customer' do
+    it 'shows the Booking requested by the customer' do
       connection = PG.connect(dbname: 'makersbnb_test')
       host = connection.exec_params("INSERT INTO users (id) VALUES ($1)", [1])
       customer = connection.exec_params("INSERT INTO users (id) VALUES ($1)", [2])
-      space = Space.add(name: 'test name', description: 'test description', price: '22.22', user_id: 1, start_date: '2022-01-01', end_date: '2022-01-31')
-      booking = Bookings.add(space_id: space_id, host_id: 1, customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
-      Bookings.add(space_id: space_id, host_id: 1, customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
+      space = Space.add(name: 'test name', description: 'test description', price: '22.22', user_id: 1, available_from: '2022-01-01', available_to: '2022-01-31')
+      booking = Booking.add(space_id: 1, host_id: 1, customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
+      Booking.add(space_id: 1, host_id: 1, customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
     
-      bookings = Booking.all
+      booking = Booking.all
 
-      expect(bookings.all_booking_made(customer_id: 2).length).to eq 2
+      expect(booking.all_booking_made(customer_id: 2).length).to eq 2
       
     end
   end
