@@ -43,8 +43,8 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces/:id' do
-    @space = Space.specific_space(id)
-    
+    @space = Space.specific_space(params[:id])
+
     erb :'/space_views/space_page'
   end
   

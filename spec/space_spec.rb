@@ -80,6 +80,9 @@ describe Space do
 
   describe '.specific_space' do
     it 'returns a specific space' do
+      DatabaseConnection.query('INSERT INTO users (id) VALUES ($1)', [1])
+      
+      Space.add(name: 'Newer space', description: 'Boring description', price: '22.34', available_from: '01/02/2022', available_to: '04/02/2022', user_id: 1)
       space = Space.specific_space(1)
 
       expect(space).to be_a Space

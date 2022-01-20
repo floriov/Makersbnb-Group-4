@@ -48,14 +48,13 @@ class Space
 
   def self.specific_space(id)
     result = DatabaseConnection.query("SELECT * FROM spaces WHERE id = #{id};").first
-    Space.new(
-      id: result[0]['id'],
+    Space.new(id: id,
       name: result['name'], 
-      description: result[0]['description'], 
-      price: result[0]['price'], 
-      available_from: result[0]['available_from'], 
-      available_to: result[0]['available_to'],
-      user_id: result[0]['user_id'])
+      description: result['description'], 
+      price: result['price'], 
+      available_from: result['available_from'], 
+      available_to: result['available_to'],
+      user_id: result['user_id'])
   end
 end
 
