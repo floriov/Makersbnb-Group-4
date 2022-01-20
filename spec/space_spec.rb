@@ -45,10 +45,9 @@ describe Space do
 
   describe '.all' do
     it 'returns a list of spaces' do
-      connection = PG.connect(dbname: 'makersbnb_test')
-      connection.exec_params('INSERT INTO users (id) VALUES ($1)', [1])
+      DatabaseConnection.query('INSERT INTO users (id) VALUES ($1)', [1])
 
-      space = Space.add(name: 'New space', description: 'Hilarious fun description', price: '22.34', available_from: '01/02/2022', available_to: '04/02/2022', user_id: 1)
+      Space.add(name: 'New space', description: 'Hilarious fun description', price: '22.34', available_from: '01/02/2022', available_to: '04/02/2022', user_id: 1)
 
       spaces = Space.all
 
@@ -61,8 +60,8 @@ describe Space do
 
   describe '.add' do
     it 'adds a space' do
-      connection = PG.connect(dbname: 'makersbnb_test')
-      connection.exec_params('INSERT INTO users (id) VALUES ($1)', [1])
+      DatabaseConnection.query('INSERT INTO users (id) VALUES ($1)', [1])
+      
       space = Space.add(name: 'Newer space', description: 'Boring description', price: '22.34', available_from: '01/02/2022', available_to: '04/02/2022', user_id: 1)
 
       expect(space).to be_a Space

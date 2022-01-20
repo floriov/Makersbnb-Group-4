@@ -1,14 +1,26 @@
+<!DOCTYPE html>
+
 <html>
+
   <head>
     <link rel="stylesheet" href="/css/style.css">
   </head>
+  <body>
+  
+  <div class='topnav'>
+      <h1><a href="/spaces">MakersBnB</a></h1>
+  </div>
+  <div class="box-2">
+    <form  method="post" action="/spaces/add">
+      <h1>List your property</h1>
+      <input class="list-input" type="text" name="name" placeholder="name" />
+      <input class="list-input" type="text" name="price" placeholder="price per night(£)" />
+      <input class="list-input" type="text" name="available_from" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" placeholder="available from:"/>
+      <input class="list-input" type="text" name="available_from" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" placeholder="available to:"/>
+      <input class="description-input" type="text" name="description" placeholder="enter description" />
+      <input class="list-button" type="submit" value="list property" />
+    </form>
+  </div>
+  </body>
+
 </html>
-<form method="post" action="/spaces/add">
-  <h1>Add a lovely space</h1>
-  <input type="text" name="name" placeholder="space name" />
-  <input type="text" name="description" placeholder="enter description" />
-  <input type="text" name="price" placeholder="enter price" />
-  <input type="date" name="available_from" placeholder="available from" />
-  <input type="date" name="available_to" placeholder="available to" />
-  <input type="submit" value="list space" />
-</form>

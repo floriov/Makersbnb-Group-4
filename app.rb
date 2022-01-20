@@ -42,5 +42,19 @@ class MakersBnB < Sinatra::Base
     redirect '/spaces'
   end
 
+=begin
+  get '/spaces/:id' do
+    @space = Space.id
+
+    erb :'/space_views/space' # too confusing?
+  end
+
+  post '/spaces/:id' do
+    Booking.add(space_id: id, host_id: (from table rather than arg?), customer_id: session[user_id], start_date: params[start_date], end_date: params[end_date] status: (don't need here?))
+    
+    redirect '/spaces'
+  end
+=end
+  
   run! if app_file == $PROGRAM_NAME
 end

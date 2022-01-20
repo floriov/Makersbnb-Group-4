@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/booking_spec.rb": {
+      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/booking_spec.rb": {
         "lines": [
           1,
           1,
@@ -72,17 +72,21 @@
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/lib/booking.rb": {
+      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/lib/booking.rb": {
         "lines": [
           1,
           null,
           1,
           null,
           1,
+          null,
           5,
           null,
           null,
           5,
+          null,
+          null,
+          null,
           null,
           null,
           null,
@@ -106,10 +110,31 @@
           null,
           1,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/database_connection_spec.rb": {
+      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/database_connection_spec.rb": {
         "lines": [
           null,
           null,
@@ -142,7 +167,7 @@
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/features/adding_a_booking_spec.rb": {
+      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/features/adding_a_booking_spec.rb": {
         "lines": [
           null,
           null,
@@ -151,7 +176,7 @@
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/features/adding_a_space_spec.rb": {
+      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/features/adding_a_space_spec.rb": {
         "lines": [
           null,
           null,
@@ -168,7 +193,7 @@
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/features/registration_spec.rb": {
+      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/features/registration_spec.rb": {
         "lines": [
           null,
           null,
@@ -185,7 +210,7 @@
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/features/viewing_spaces_spec.rb": {
+      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/features/viewing_spaces_spec.rb": {
         "lines": [
           null,
           null,
@@ -201,7 +226,7 @@
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/space_spec.rb": {
+      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/space_spec.rb": {
         "lines": [
           null,
           null,
@@ -251,7 +276,6 @@
           1,
           1,
           1,
-          1,
           null,
           1,
           null,
@@ -267,7 +291,7 @@
           1,
           1,
           1,
-          1,
+          null,
           1,
           null,
           1,
@@ -278,17 +302,16 @@
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/database_helpers.rb": {
+      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/database_helpers.rb": {
         "lines": [
           null,
           null,
           1,
           0,
-          0,
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/spec/user_spec.rb": {
+      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/user_spec.rb": {
         "lines": [
           null,
           null,
@@ -308,7 +331,7 @@
           null
         ]
       },
-      "/Users/vanessaflorio/Desktop/Makersbnb-Group-4/lib/user.rb": {
+      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/lib/user.rb": {
         "lines": [
           null,
           null,
@@ -342,6 +365,6 @@
         ]
       }
     },
-    "timestamp": 1642617119
+    "timestamp": 1642670526
   }
 }
