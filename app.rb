@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/space'
 require './lib/booking'
+require './lib/user'
 require 'pg'
 require_relative 'database_connection_setup'
 
@@ -22,7 +23,10 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/users/new' do
-    session[:user_id] = params[:user_id]
+    @user = User.create(email: params[:email], username: params[:username], password: params[:password])
+    
+    # user.id = session[:user_id]
+    # p session[:user_id]
     redirect '/spaces'
   end
 
@@ -46,8 +50,8 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/bookings' do 
-    p 'sessions...', session[:user_id]
-    # @bookings = Booking.all_booking_received(host_id: session[:user_id])
+    p @user
+    @bookings = Booking.all_booking_received(host_id: user.id)
     erb :'bookings/index'
   end 
   
