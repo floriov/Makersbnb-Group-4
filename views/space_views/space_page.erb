@@ -1,9 +1,29 @@
-Name: <%= @space.name %>
-<br>
-Description: <%= @space.description %>
-<br>
-Price: £<%= @space.price %>
-<br>
-Available from: <%= @space.available_from %>
-<br>
-Available to: <%= @space.available_to %>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<h1>Book a space</h1>
+<ul>
+    <li class='space_item'>
+    <%= @space.name %>
+    <%= @space.description %>
+    £<%= @space.price %>
+    <%= @space.available_from %>
+    <%= @space.available_to %>
+    </li>
+</ul>
+</body>
+
+<form action='/spaces'>
+
+  <input class="list-input" name="start_date"  type="date" min="<%= @space.available_from %>" max="<%= @space.available_to %>">
+  <input class="list-input" name="end_date"  type="date" min="<%= @space.available_from %>" max="<%= @space.available_to %>" >
+  <%# <input class=type="text"  onfocus="(this.type='date ')" onblur="if(!this.value) this.type='text'" placeholder="start date:"/> %>
+  <%# <input class="list-input" type="text" name="end_date" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" placeholder="end date:"/> %>
+  <input class='standard-button' type='submit' value='Request Booking'/>
+</form> 
+
+</html>
