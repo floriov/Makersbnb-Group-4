@@ -7,6 +7,6 @@ def fill_in_add_space(name, description, price, available_from, available_to)
   fill_in 'price', with: price
   fill_in 'available_from',  with: available_from
   fill_in 'available_to', with: available_to
-  click_button 'list space'
+  click_button 'list property'
 end
 
