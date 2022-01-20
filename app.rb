@@ -48,9 +48,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/bookings' do 
-    p 'print session user_id...', session[:user_id]
     @bookings = Booking.all_booking_received(host_id: session[:user_id])
-    p 'print bookings...', @bookings
     erb :'bookings/index'
   end 
   
