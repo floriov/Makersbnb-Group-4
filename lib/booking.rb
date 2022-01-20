@@ -1,6 +1,16 @@
 require 'pg'
 
 class Booking 
+  attr_reader :space_id, :host_id, :customer_id, :start_date, :end_date, :status
+
+  def initialize(space_id:, host_id:, customer_id:, start_date:, end_date:, status:)
+    @space_id = space_id
+    @host_id = host_id
+    @customer_id = customer_id
+    @start_date = start_date
+    @end_date = end_date
+    @status = status
+  end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM bookings;")
@@ -15,16 +25,23 @@ class Booking
   end 
 
   def self.add(space_id:, host_id:, customer_id:, start_date:, end_date:, status:)
-    # if self.available?(space_id, start_date, end_date)
-    result = DatabaseConnection.query('INSERT INTO bookings (space_id, host_id, customer_id, start_date, end_date, status) 
-    VALUES ($1, $2, $3, $4, $5, $6) RETURNING space_id, host_id, customer_id, start_date, end_date, status;', 
-    [space_id, host_id, customer_id, start_date, end_date, status])
-    
-    Booking.new(space_id: result[0]['space_id'], host_id: result[0]['host_id'], customer_id: result[0]['customer_id'], start_date: result[0]['start_date'], end_date: result[0]['end_date'], status: result[0]['status'])
-    # @status = 'requested'??
-    # else
-      # "Sorry, this space is unavailable on those dates" or something like that?
-    # end
+    if self.available?(space_id, start_date, end_date)
+      result = DatabaseConnection.query('INSERT INTO bookings 
+        (space_id, host_id, customer_id, start_date, end_date, status) 
+        VALUES ($1, $2, $3, $4, $5, $6) 
+        RETURNING space_id, host_id, customer_id, start_date, end_date, status;', 
+        [space_id, host_id, customer_id, start_date, end_date, status])
+      
+      Booking.new(space_id: result[0]['space_id'], 
+        host_id: result[0]['host_id'], 
+        customer_id: result[0]['customer_id'], 
+        start_date: result[0]['start_date'], 
+        end_date: result[0]['end_date'], 
+        status: result[0]['status'])
+      @status = 'requested'
+    else
+      "Sorry, this space is unavailable on those dates" or something like that?
+    end
   end 
 
   def self.all_booking_made(customer_id:)
@@ -50,17 +67,6 @@ class Booking
       status: booking['status'])
     end
   end
-
-  def initialize(space_id:, host_id:, customer_id:, start_date:, end_date:, status:)
-    @space_id = space_id
-    @host_id = host_id
-    @customer_id = customer_id
-    @start_date = start_date
-    @end_date = end_date
-    @status = status
-  end 
-
-  attr_reader :space_id, :host_id, :customer_id, :start_date, :end_date, :status
 
   def self.availability(space_id)
     dates = DatabaseConnection.query(
