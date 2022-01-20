@@ -2,6 +2,18 @@ require 'pg'
 
 class Booking 
 
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM bookings;")
+    result.map do |booking| 
+      Booking.new(space_id: booking['space_id'], 
+      host_id: booking['host_id'], 
+      customer_id: booking['customer_id'], 
+      start_date: booking['start_date'], 
+      end_date: booking['end_date'], 
+      status: booking['status'])
+    end 
+  end 
+
   def self.add(space_id:, host_id:, customer_id:, start_date:, end_date:, status:)
     # if self.available?(space_id, start_date, end_date)
     result = DatabaseConnection.query('INSERT INTO bookings (space_id, host_id, customer_id, start_date, end_date, status) 
@@ -16,10 +28,26 @@ class Booking
 
   def self.all_booking_made(customer_id:)
     result = DatabaseConnection.query("SELECT * FROM bookings WHERE customer_id = '#{customer_id}'")
+    result.map do |booking| 
+      Booking.new(space_id: booking['space_id'], 
+      host_id: booking['host_id'], 
+      customer_id: booking['customer_id'], 
+      start_date: booking['start_date'], 
+      end_date: booking['end_date'], 
+      status: booking['status'])
+    end
   end
 
   def self.all_booking_received(host_id:)
     result = DatabaseConnection.query("SELECT * FROM bookings WHERE host_id = '#{host_id}'")
+    result.map do |booking| 
+      Booking.new(space_id: booking['space_id'], 
+      host_id: booking['host_id'], 
+      customer_id: booking['customer_id'], 
+      start_date: booking['start_date'], 
+      end_date: booking['end_date'], 
+      status: booking['status'])
+    end
   end
 
   def initialize(space_id:, host_id:, customer_id:, start_date:, end_date:, status:)

@@ -30,13 +30,14 @@ describe Booking do
       customer = connection.exec_params("INSERT INTO users (id) VALUES ($1)", [2])
       space = Space.add(name: 'test name', description: 'test description', price: '22.22', user_id: 1, available_from: '2022-01-01', available_to: '2022-01-31')
 
-      booking = Booking.add(space_id: 1, host_id: 1, customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
+      booking = Booking.add(space_id: '1', host_id: '1', customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
+      Booking.add(space_id: '1', host_id: '1', customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
 
       bookings = Booking.all
       
       expect(bookings.length).to eq 2
       expect(bookings.first).to be_a Booking
-      expect(bookings.first.space_id).to eq 1
+      expect(bookings.first.space_id).to eq "1"
       expect(bookings.first.host_id).to eq booking.host_id
       expect(bookings.first.customer_id).to eq '2'
       expect(bookings.first.start_date).to eq booking.start_date
@@ -77,8 +78,8 @@ describe Booking do
       #final tests 
       expect(bookings.length).to eq 2
       expect(bookings.first).to be_a Booking
-      expect(bookings.first.space_id).to eq 1
-      expect(bookings.first.user_id).to eq booking.host_id
+      expect(bookings.first.space_id).to eq booking.space_id
+      expect(bookings.first.host_id).to eq booking.host_id
       expect(bookings.first.customer_id).to eq '2'
       expect(bookings.first.start_date).to eq booking.start_date
       expect(bookings.first.end_date).to eq booking.end_date
@@ -116,8 +117,8 @@ describe Booking do
       #final tests 
       expect(bookings.length).to eq 3
       expect(bookings.first).to be_a Booking
-      expect(bookings.first.space_id).to eq 1
-      expect(bookings.first.user_id).to eq booking.host_id
+      expect(bookings.first.space_id).to eq booking.space_id
+      expect(bookings.first.host_id).to eq booking.host_id
       # expect(bookings.first.customer_id).to eq '2'
       # expect(bookings.first.start_date).to eq booking.start_date
       # expect(bookings.first.end_date).to eq booking.end_date
