@@ -54,7 +54,12 @@ describe Space do
     it 'returns a list of spaces' do
       DatabaseConnection.query('INSERT INTO users (id) VALUES ($1)', [1])
 
-      Space.add(name: 'New space', description: 'Hilarious fun description', price: '22.34', available_from: '01/02/2022', available_to: '04/02/2022', user_id: 1)
+      Space.add(name: 'New space', 
+        description: 'Hilarious fun description', 
+        price: '22.34', 
+        available_from: '01/02/2022', 
+        available_to: '04/02/2022', 
+        user_id: 1)
 
       spaces = Space.all
 
@@ -81,13 +86,19 @@ describe Space do
   describe '.specific_space' do
     it 'returns a specific space' do
       DatabaseConnection.query('INSERT INTO users (id) VALUES ($1)', [1])
+
+      result = Space.add(name: 'New space', 
+        description: 'Hilarious fun description', 
+        price: '22.34', 
+        available_from: '01/02/2022', 
+        available_to: '04/02/2022', 
+        user_id: 1)
       
-      Space.add(name: 'Newer space', description: 'Boring description', price: '22.34', available_from: '01/02/2022', available_to: '04/02/2022', user_id: 1)
-      space = Space.specific_space(1)
+      space = Space.specific_space(result.id)
 
       expect(space).to be_a Space
-      expect(space.name).to eq '1 Space Avenue'
-      expect(space.description).to eq 'Ugly, Fear-Inducing Bungalow'
+      expect(space.name).to eq 'New space'
+      expect(space.description).to eq 'Hilarious fun description'
     end
   end
 end
