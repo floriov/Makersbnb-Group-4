@@ -15,7 +15,6 @@ class Space
     @available_from = available_from
     @available_to = available_to
     @user_id = user_id
-    @space_id = space_id
   end
 
   def self.all
@@ -28,7 +27,7 @@ class Space
       available_from: space['available_from'], 
       available_to: space['available_to'],
       user_id: space['user_id'], 
-      space_id: space['id'])
+    )
     end
   end
 
