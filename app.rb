@@ -43,12 +43,17 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces/:id' do
-    @space = Space.specific_space(params[:id])
+    @space = Space.(params[:id])
     erb :'/space_views/space_page'
   end
 
   get '/bookings' do 
     @bookings = Booking.all_booking_received(host_id: session[:user_id])
+    #need this method to cross reference the spaces_id 
+    #from the booking sheet WITH the spaces table 
+    #would this sit within the bookings class?
+    #i.e. based upon the space_id provided in the booking, what is the spaces details?
+    @spaces = Space.specific_space(2)
     erb :'bookings/index'
   end 
   
