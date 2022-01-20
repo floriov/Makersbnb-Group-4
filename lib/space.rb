@@ -4,6 +4,7 @@ require 'pg'
 require_relative 'database_connection'
 
 class Space
+
   attr_reader :id, :name, :description, :price, :available_from, :available_to, :user_id
 
   def initialize(id:, name:, description:, price:, available_from:, available_to:, user_id:)
@@ -14,6 +15,7 @@ class Space
     @available_from = available_from
     @available_to = available_to
     @user_id = user_id
+    @space_id = space_id
   end
 
   def self.all
@@ -25,7 +27,8 @@ class Space
       price: space['price'], 
       available_from: space['available_from'], 
       available_to: space['available_to'],
-      user_id: space['user_id'])
+      user_id: space['user_id'], 
+      space_id: space['id'])
     end
   end
 
@@ -43,7 +46,8 @@ class Space
     price: result[0]['price'], 
     available_from: result[0]['available_from'], 
     available_to: result[0]['available_to'],
-    user_id: result[0]['user_id'])
+    user_id: result[0]['user_id']
+    )
   end
 
   def self.specific_space(id)
