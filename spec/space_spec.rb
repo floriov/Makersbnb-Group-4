@@ -5,13 +5,20 @@ require 'pg'
 require_relative 'database_helpers'
 
 describe Space do
-  subject(:space) { described_class.new(name: name, description: description, price: price, available_from: available_from, available_to: available_to,  user_id: user_id) }
+  subject(:space) { described_class.new(id: id, name: name, description: description, price: price, available_from: available_from, available_to: available_to,  user_id: user_id) }
+  let(:id) { 1 }
   let(:name) { '1 Space Avenue' }
   let(:description) { 'Ugly, Fear-Inducing Bungalow' }
   let(:price) { '50.00' }
   let(:available_from) { '01/02/2022' }
   let(:available_to) { '04/02/2022' }
   let(:user_id) { 1 }
+
+  describe '#id' do
+    it 'returns the space id' do
+      expect(space.id).to eq(1)
+    end
+  end
 
   describe '#name' do
     it 'returns the space name' do
@@ -51,6 +58,7 @@ describe Space do
 
       spaces = Space.all
 
+      expect(spaces.first.id.to_i).to be_a Integer
       expect(spaces.size).to eq 1
       expect(spaces.first).to be_a Space
       expect(spaces.first.description).to eq 'Hilarious fun description'
@@ -67,6 +75,16 @@ describe Space do
       expect(space).to be_a Space
       expect(space.description).to eq 'Boring description'
       expect(space.price).to eq '22.34'
+    end
+  end
+
+  describe '.specific_space' do
+    it 'returns a specific space' do
+      space = Space.specific_space(1)
+
+      expect(space).to be_a Space
+      expect(space.name).to eq '1 Space Avenue'
+      expect(space.description).to eq 'Ugly, Fear-Inducing Bungalow'
     end
   end
 end

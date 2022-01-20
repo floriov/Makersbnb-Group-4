@@ -38,23 +38,15 @@ class MakersBnB < Sinatra::Base
 
   post '/spaces/add' do
     Space.add(name: params[:name], description: params[:description], price: params[:price], available_from: params[:available_from], available_to: params[:available_to], user_id: session[:user_id])
-
-    redirect '/spaces'
-  end
-
-=begin
-  get '/spaces/:id' do
-    @space = Space.id
-
-    erb :'/space_views/space' # too confusing?
-  end
-
-  post '/spaces/:id' do
-    Booking.add(space_id: id, host_id: (from table rather than arg?), customer_id: session[user_id], start_date: params[start_date], end_date: params[end_date] status: (don't need here?))
     
     redirect '/spaces'
   end
-=end
+
+  get '/spaces/:id' do
+    @space = Space.specific_space(id)
+    
+    erb :'/space_views/space_page'
+  end
   
   run! if app_file == $PROGRAM_NAME
 end
