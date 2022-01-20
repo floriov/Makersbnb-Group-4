@@ -23,10 +23,8 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/users/new' do
-    @user = User.create(email: params[:email], username: params[:username], password: params[:password])
-    
-    # user.id = session[:user_id]
-    # p session[:user_id]
+    user = User.create(email: params[:email], username: params[:username], password: params[:password])
+    session[:user_id] = user.id
     redirect '/spaces'
   end
 
@@ -50,8 +48,9 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/bookings' do 
-    p @user
-    @bookings = Booking.all_booking_received(host_id: user.id)
+    p 'print session user_id...', session[:user_id]
+    @bookings = Booking.all_booking_received(host_id: session[:user_id])
+    p 'print bookings...', @bookings
     erb :'bookings/index'
   end 
   
