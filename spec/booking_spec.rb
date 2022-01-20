@@ -63,14 +63,14 @@ describe Booking do
       
       spaces = Space.all
 
-      expect(spaces.last.space_id).to eq space.space_id
+      expect(spaces.last.id).to eq space.id
 
       #submit a booking request 
-      booking = Booking.add(space_id: "#{space.space_id}", host_id: "#{space.user_id}", customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
-      Booking.add(space_id: "#{space.space_id}", host_id: "#{space.user_id}", customer_id: 2, start_date: '2022-02-02', end_date: '2022-02-22', status: 'requested' )
-      Booking.add(space_id: "#{space.space_id}", host_id: "#{space.user_id}", customer_id: 99, start_date: '2022-02-02', end_date: '2022-02-22', status: 'requested' )
+      booking = Booking.add(space_id: "#{space.id}", host_id: "#{space.user_id}", customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
+      Booking.add(space_id: "#{space.id}", host_id: "#{space.user_id}", customer_id: 2, start_date: '2022-02-02', end_date: '2022-02-22', status: 'requested' )
+      Booking.add(space_id: "#{space.id}", host_id: "#{space.user_id}", customer_id: 99, start_date: '2022-02-02', end_date: '2022-02-22', status: 'requested' )
 
-      expect(booking.space_id).to eq spaces.last.space_id
+      expect(booking.space_id).to eq spaces.last.id
 
       #combine all our bookings into a single request 
       bookings = Booking.all_booking_made(customer_id: 2)
@@ -104,12 +104,12 @@ describe Booking do
       
       spaces = Space.all
 
-      expect(spaces.last.space_id).to eq space.space_id
+      expect(spaces.last.id).to eq space.id
 
       #submit a booking request 
-      booking = Booking.add(space_id: "#{space.space_id}", host_id: "#{space.user_id}", customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
-      Booking.add(space_id: "#{space.space_id}", host_id: "#{space.user_id}", customer_id: 2, start_date: '2022-02-02', end_date: '2022-02-22', status: 'requested' )
-      Booking.add(space_id: "#{space.space_id}", host_id: "#{space.user_id}", customer_id: 99, start_date: '2022-02-02', end_date: '2022-02-22', status: 'requested' )
+      booking = Booking.add(space_id: "#{space.id}", host_id: "#{space.user_id}", customer_id: 2, start_date: '2022-01-01', end_date: '2022-01-31', status: 'requested' )
+      Booking.add(space_id: "#{space.id}", host_id: "#{space.user_id}", customer_id: 2, start_date: '2022-02-02', end_date: '2022-02-22', status: 'requested' )
+      Booking.add(space_id: "#{space.id}", host_id: "#{space.user_id}", customer_id: 99, start_date: '2022-02-02', end_date: '2022-02-22', status: 'requested' )
 
       #combine all our bookings into a single request 
       bookings = Booking.all_booking_received(host_id: "#{space.user_id}" )

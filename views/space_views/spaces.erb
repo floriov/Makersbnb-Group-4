@@ -5,11 +5,14 @@
 <h1>Lovely Spaces!</h1>
 <ul>
   <% @spaces.each do |space| %>
-    <li class='space_item'><%= space.name %>
+    <li class='space_item'>
+    <%= space.name %>
     <%= space.description %>
     £<%= space.price %>
     <%= space.available_from %>
     <%= space.available_to %>
+    <form action="/spaces/<%= space.id %>"> <input type='submit' value='book space'/>
+    </form>
     </li>
   <% end %>
 </ul>

@@ -4,28 +4,30 @@ require 'pg'
 require_relative 'database_connection'
 
 class Space
-  attr_reader :name, :description, :price, :available_from, :available_to, :user_id, :space_id
 
-  def initialize(name:, description:, price:, available_from:, available_to:, user_id:, space_id:)
+  attr_reader :id, :name, :description, :price, :available_from, :available_to, :user_id
+
+  def initialize(id:, name:, description:, price:, available_from:, available_to:, user_id:)
+    @id = id
     @name = name
     @description = description
     @price = price
     @available_from = available_from
     @available_to = available_to
     @user_id = user_id
-    @space_id = space_id
   end
 
   def self.all
     result = DatabaseConnection.query('SELECT * FROM spaces;')
     result.map do |space|
-      Space.new(name: space['name'], 
+      Space.new(id: space['id'],
+      name: space['name'], 
       description: space['description'], 
       price: space['price'], 
       available_from: space['available_from'], 
       available_to: space['available_to'],
       user_id: space['user_id'], 
-      space_id: space['id'])
+    )
     end
   end
 
@@ -37,7 +39,7 @@ class Space
       ]
     )
     Space.new(
-    space_id: result[0]['id'],
+    id: result[0]['id'],
     name: result[0]['name'], 
     description: result[0]['description'], 
     price: result[0]['price'], 
@@ -45,6 +47,17 @@ class Space
     available_to: result[0]['available_to'],
     user_id: result[0]['user_id']
     )
+  end
+
+  def self.specific_space(id)
+    result = DatabaseConnection.query("SELECT * FROM spaces WHERE id = #{id};").first
+    Space.new(id: id,
+      name: result['name'], 
+      description: result['description'], 
+      price: result['price'], 
+      available_from: result['available_from'], 
+      available_to: result['available_to'],
+      user_id: result['user_id'])
   end
 end
 
