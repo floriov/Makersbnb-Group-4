@@ -16,7 +16,6 @@ class Booking
 
   def self.all_booking_made(customer_id:)
     result = DatabaseConnection.query("SELECT * FROM bookings WHERE customer_id = '#{customer_id}'")
-    
   end
 
   def self.all_booking_received(host_id:)
