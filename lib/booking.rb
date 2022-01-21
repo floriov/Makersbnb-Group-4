@@ -12,6 +12,7 @@ class Booking
       status: booking['status'])
     end
   end
+
   def self.add(space_id:, customer_id:, start_date:, end_date:, status:)
     host_id = DatabaseConnection.query("SELECT * FROM spaces WHERE id = #{space_id};").first['user_id']
     #if self.available?(space_id, start_date, end_date)
@@ -28,6 +29,7 @@ class Booking
     #   raise
     # end
   end
+
   def self.all_booking_made(user_id)
     result = DatabaseConnection.query("SELECT * FROM bookings WHERE customer_id = #{user_id};")
     result.map do |booking|
@@ -39,6 +41,7 @@ class Booking
       status: booking['status'])
     end
   end
+
   def self.all_booking_received(user_id)
     result = DatabaseConnection.query("SELECT * FROM bookings WHERE host_id = #{user_id};")
     result.map do |booking|
@@ -50,14 +53,17 @@ class Booking
       status: booking['status'])
     end
   end
+
   def self.availability(space_id)
     dates = DatabaseConnection.query(
     "SELECT available_from, available_to FROM spaces WHERE id = #{space_id};").first
   end
+
   def self.bookings(space_id)
     dates = DatabaseConnection.query(
     "SELECT start_date, end_date FROM bookings WHERE space_id = #{space_id} AND status = 'approved';").first
   end
+
   def self.available?(space_id, start_date, end_date)
     available = self.availability(space_id)
     bookings = self.bookings(space_id)
@@ -65,6 +71,7 @@ class Booking
     return false if bookings.has_value?(start_date) || bookings.has_value?(end_date)
     true
   end
+
   def initialize(space_id:, customer_id:, host_id:, start_date:, end_date:, status:)
     @space_id = space_id
     @customer_id = customer_id
@@ -73,5 +80,6 @@ class Booking
     @end_date = end_date
     @status = status
   end
+  
   attr_reader :space_id, :customer_id, :host_id, :start_date, :end_date, :status
 end
