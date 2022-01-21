@@ -8,6 +8,6 @@ feature 'registration' do
     fill_in 'username', with: 'user_test'
     click_button('Sign up')
 
-    expect(page).to have_content 'Lovely Spaces!'
+    expect(page).to have_content 'MakersBnB'
   end
 end

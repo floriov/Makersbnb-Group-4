@@ -2,10 +2,12 @@
 
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/user'
 require './lib/space'
 require './lib/booking'
 require './lib/user'
 require 'pg'
+require 'bcrypt'
 require_relative 'database_connection_setup'
 
 class MakersBnB < Sinatra::Base
@@ -22,14 +24,33 @@ class MakersBnB < Sinatra::Base
     erb :index
   end
 
+  get '/login' do
+    erb :'/users/login'
+  end
+
+  post '/login' do
+    user = params[:username]
+    password = params[:password]
+    if User.match?(user, password)
+      session[:user_id] = User.find_id(user)
+      redirect '/spaces'
+    else
+      redirect '/'
+    end
+  end
+
   post '/users/new' do
-    user = User.create(email: params[:email], username: params[:username], password: params[:password])
+    user = User.add(username: params[:username],
+      email: params[:email], 
+      password: params[:password])
     session[:user_id] = user.id
+
     redirect '/spaces'
   end
 
   get '/spaces' do
     @spaces = Space.all
+
     erb :'/space_views/spaces'
   end
 
@@ -38,13 +59,38 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/spaces/add' do
-    Space.add(name: params[:name], description: params[:description], price: params[:price], available_from: params[:available_from], available_to: params[:available_to], user_id: session[:user_id])
+    Space.add(name: params[:name], 
+      description: params[:description], 
+      price: params[:price], 
+      available_from: params[:available_from], 
+      available_to: params[:available_to], 
+      user_id: session[:user_id])
+
     redirect '/spaces'
   end
 
   get '/spaces/:id' do
+
+    # @space = Space.specific_space(params[:id]) just leaving it here to remind me to investigate :)
+    
+
     @space = Space.(params[:id])
+
     erb :'/space_views/space_page'
+  end
+
+  post '/spaces/:id/request-confirmation' do
+    Booking.add(space_id: params[:id],
+      customer_id: session[:user_id],
+      start_date: params[:start_date], 
+      end_date: params[:end_date], 
+      status: 'requested')
+    
+    redirect '/spaces/:id/request-confirmation'
+  end
+
+  get '/spaces/:id/request-confirmation' do
+    erb :'/space_views/request_confirmation'
   end
 
   get '/bookings' do 
@@ -55,7 +101,7 @@ class MakersBnB < Sinatra::Base
     #i.e. based upon the space_id provided in the booking, what is the spaces details?
     @spaces = Space.specific_space(2)
     erb :'bookings/index'
-  end 
+  end
   
   run! if app_file == $PROGRAM_NAME
 end

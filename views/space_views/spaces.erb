@@ -1,24 +1,29 @@
 <html>
 <head>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+  <body>
 
-<h1>Lovely Spaces!</h1>
-<ul>
-  <% @spaces.each do |space| %>
-    <li class='space_item'>
-    <%= space.name %>
-    <%= space.description %>
-    £<%= space.price %>
-    <%= space.available_from %>
-    <%= space.available_to %>
-    <form action="/spaces/<%= space.id %>"> <input type='submit' value='book space'/>
-    </form>
-    </li>
-  <% end %>
-</ul>
+    <div class='topnav'>
+      <h1><a href="spaces">MakersBnB</a></h1>
+    </div>
 
-<form action='/spaces/add'>
-  <input type='submit' value='list space'/>
-</form>
+    <div class='box-2'>
+      <% @spaces.each do |space| %>
 
+          <div class='space-details-box-2'>
+            <h3><%= space.name %> ~ £<%= space.price %> / night <h3>
+            <p><%= space.description %><p>
+            
+            <form action="/spaces/<%= space.id %>"> 
+              <input class='small-button' type='submit' value='book space'/>
+            </form>
+          </div>
+
+      <% end %>
+      <form action='/spaces/add'>
+      <input class='standard-button' type='submit' value='list space'/>
+      </form>
+    </div>
+  </body>
 </html>
