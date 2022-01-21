@@ -34,7 +34,8 @@ class Space
   def self.add(name:, description:, price:, available_from:, available_to:, user_id:)
     result = DatabaseConnection.query(
       'INSERT INTO spaces (name, description, price, available_from, available_to, user_id) 
-      VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, name, description, price, available_from, available_to, user_id;', [
+      VALUES ($1, $2, $3, $4, $5, $6) 
+      RETURNING id, name, description, price, available_from, available_to, user_id;', [
         name, description, price, available_from, available_to, user_id
       ]
     )
@@ -59,5 +60,20 @@ class Space
       available_to: result['available_to'],
       user_id: result['user_id'])
   end
+
+  def self.specific_space(user_id)
+    #removed .first - see how this impacts later
+    result = DatabaseConnection.query("SELECT * FROM spaces WHERE user_id = #{user_id};")
+    result.map do |space|
+      Space.new(id: space['id'],
+      name: space['name'], 
+      description: space['description'], 
+      price: space['price'], 
+      available_from: space['available_from'], 
+      available_to: space['available_to'],
+      user_id: space['user_id'], 
+    )
+    end
+  end 
 end
 
