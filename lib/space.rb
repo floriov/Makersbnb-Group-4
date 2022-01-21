@@ -76,4 +76,3 @@ class Space
     end
   end 
 end
-
