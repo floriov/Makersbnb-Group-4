@@ -1,18 +1,28 @@
-<h1> Requests </h1>
-
-<h2> Requests I've received </h2>
+<html>
+<head>
+   <title>Bookings</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class='topnav'>
+      <ul style='list-style-type: none; margin: 0; padding: 0; display: inline;'>
+        <li><h1><a href="spaces">MakersBnB</a> -
+        <a href="/">sign up</a> - 
+        <a href="login">login</a> -
+        <a href="spaces">book space</a> -
+        <a href="bookings">bookings</a> -
+        <a href="spaces/add">list space</a></h1></li>
+      </ul>
+    </div>
 <ol>
   <% @bookings.each do |booking| %>
     <li>
-      <%= booking.space_id %> <br>
-      <%= booking.start_date %> <br>
-      <%= booking.end_date %> <br>
-      <%= booking.status %> <br>
+      Space ID: <%=  booking.space_id %> <br>
+      From: <%= booking.start_date %> <br>
+      To: <%= booking.end_date %> <br>
+      Status: <%= booking.status %> <br>
     </li> <br>
   <% end %>
-
-
-
-
-
 </ol>
+</body>
+</html>
