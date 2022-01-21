@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/booking_spec.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/booking_spec.rb": {
         "lines": [
           1,
           1,
@@ -162,7 +162,7 @@
           null
         ]
       },
-      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/database_connection_spec.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/database_connection_spec.rb": {
         "lines": [
           null,
           null,
@@ -195,7 +195,7 @@
           null
         ]
       },
-      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/features/adding_a_booking_spec.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/features/adding_a_booking_spec.rb": {
         "lines": [
           null,
           null,
@@ -204,7 +204,7 @@
           null
         ]
       },
-      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/features/adding_a_space_spec.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/features/adding_a_space_spec.rb": {
         "lines": [
           null,
           null,
@@ -219,7 +219,7 @@
           null
         ]
       },
-      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/features/registration_spec.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/features/registration_spec.rb": {
         "lines": [
           null,
           null,
@@ -236,16 +236,16 @@
           null
         ]
       },
-      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/features/showing_booking_received_spec.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/features/showing_booking_received_spec.rb": {
         "lines": [
           null,
+          1,
+          1,
           1,
           1,
           0,
           0,
           0,
-          0,
-          0,
           null,
           0,
           null,
@@ -261,7 +261,7 @@
           null
         ]
       },
-      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/features/viewing_spaces_spec.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/features/viewing_spaces_spec.rb": {
         "lines": [
           null,
           null,
@@ -277,7 +277,7 @@
           null
         ]
       },
-      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/space_spec.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/space_spec.rb": {
         "lines": [
           null,
           null,
@@ -387,7 +387,7 @@
           null
         ]
       },
-      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/database_helpers.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/database_helpers.rb": {
         "lines": [
           null,
           null,
@@ -396,7 +396,7 @@
           null
         ]
       },
-      "/Users/victoriablack/Projects/Makers/week_5/Makersbnb-Group-4/spec/user_spec.rb": {
+      "/Users/Josh/Projects/Makersbnb-Group-4/spec/user_spec.rb": {
         "lines": [
           null,
           null,
@@ -417,6 +417,6 @@
         ]
       }
     },
-    "timestamp": 1642770045
+    "timestamp": 1642772576
   }
 }

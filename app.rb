@@ -91,7 +91,8 @@ class MakersBnB < Sinatra::Base
   get '/bookings' do 
     p session[:user_id]
     @bookings = Booking.all_booking_received(session[:user_id])
-    p @bookings
+    # @spaces = Space.all
+    
     #need this method to cross reference the spaces_id 
     #from the booking sheet WITH the spaces table 
     #would this sit within the bookings class?
