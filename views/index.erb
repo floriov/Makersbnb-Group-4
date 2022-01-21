@@ -1,23 +1,28 @@
 <html>
   <head>
-    <link rel="stylesheet" href="/css/style.css">
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Monoton&display=swap');
-    </style>
+    <title>Sign up</title>
+    <link rel=“stylesheet” href=“/css/style.css”>
   </head>
   <body>
-    
     <div class='topnav'>
-      <h1><a href="spaces">MakersBnB</a></h1>
+      <ul style='list-style-type: none; margin: 0; padding: 0; display: inline;'>
+        <li><h1><a href=“spaces”>MakersBnB</a> -
+        <a href=“/”>sign up</a> -
+        <a href=“login”>login</a> -
+        <a href=“spaces”>book space</a> -
+        <a href=“spaces/add”>list space</a></h1></li>
+      </ul>
     </div>
-
-      <form class='box' action="/users/new" method="POST">
+      <form class='box' action=“/users/new” method=“POST”>
         <h1>Sign up</h1>
-        <input class='standard-input' type ="text", name="username", placeholder="username">
-        <input class='standard-input' type ="text", name="email", placeholder="email">
-        <input class='standard-input' type ="password", name="password", placeholder="password">
-        <input class='standard-button' type ="submit", value="Sign up">
-      
+        <input class='standard-input' type =“text”, name=“username”, placeholder=“username”>
+        <input class='standard-input' type =“text”, name=“email”, placeholder=“email”>
+        <input class='standard-input' type =“password”, name=“password”, placeholder=“password”>
+        <input class='standard-button' type =“submit”, value=“Sign up”>
     </form>
   </body>
 </html>
+
+
+
+
