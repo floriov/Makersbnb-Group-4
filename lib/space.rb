@@ -34,7 +34,8 @@ class Space
   def self.add(name:, description:, price:, available_from:, available_to:, user_id:)
     result = DatabaseConnection.query(
       'INSERT INTO spaces (name, description, price, available_from, available_to, user_id) 
-      VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, name, description, price, available_from, available_to, user_id;', [
+      VALUES ($1, $2, $3, $4, $5, $6) 
+      RETURNING id, name, description, price, available_from, available_to, user_id;', [
         name, description, price, available_from, available_to, user_id
       ]
     )

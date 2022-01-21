@@ -4,7 +4,15 @@
 <ol>
   <% @bookings.each do |booking| %>
     <li>
-      <%= booking %> <br>
+      <%= booking.space_id %> <br>
+      <%= booking.start_date %> <br>
+      <%= booking.end_date %> <br>
+      <%= booking.status %> <br>
+    </li> <br>
+  <% end %>
+  <% @spaces.each do |space| %>
+    <li>
+      <%= space.user_id %> <br>
     </li> <br>
   <% end %>
 </ol>
