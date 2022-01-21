@@ -33,8 +33,9 @@ class Booking
     # end
   end 
 
-  def self.all_booking_made(user_id)
-    result = DatabaseConnection.query("SELECT * FROM bookings WHERE customer_id = #{user_id};")
+
+  def self.all_booking_made(customer_id:)
+    result = DatabaseConnection.query("SELECT * FROM bookings WHERE customer_id = #{customer_id}")
     result.map do |booking| 
       Booking.new(space_id: booking['space_id'],
       customer_id: booking['customer_id'],
@@ -45,8 +46,8 @@ class Booking
     end
   end
 
-  def self.all_booking_received(user_id)
-    result = DatabaseConnection.query("SELECT * FROM bookings WHERE host_id = #{user_id};")
+  def self.all_booking_received(host_id)
+    result = DatabaseConnection.query("SELECT * FROM bookings WHERE host_id = #{hots_id};")
     result.map do |booking| 
       Booking.new(space_id: booking['space_id'],
       customer_id: booking['customer_id'],

@@ -5,6 +5,7 @@ require 'sinatra/reloader'
 require './lib/user'
 require './lib/space'
 require './lib/booking'
+require './lib/user'
 require 'pg'
 require 'bcrypt'
 require_relative 'database_connection_setup'
@@ -69,8 +70,12 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces/:id' do
-    @space = Space.specific_space(params[:id])
+
+    # @space = Space.specific_space(params[:id]) just leaving it here to remind me to investigate :)
     
+
+    @space = Space.(params[:id])
+
     erb :'/space_views/space_page'
   end
 
