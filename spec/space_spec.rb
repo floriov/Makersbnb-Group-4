@@ -98,7 +98,6 @@ describe Space do
         user_id: 1)
       
       space = Space.specific_space(result.id)
-
       expect(space).to be_a Space
       expect(space.name).to eq 'New space'
       expect(space.description).to eq 'Hilarious fun description'
