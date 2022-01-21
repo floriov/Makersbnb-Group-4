@@ -61,4 +61,3 @@ class Space
       user_id: result['user_id'])
   end
 end
-
